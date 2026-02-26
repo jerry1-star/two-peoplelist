@@ -6,9 +6,13 @@ RUN npm install -g pnpm
 
 COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
 COPY packages/ packages/
-COPY apps/ apps/
+# Stub package.json for other apps (workspace resolution only, no source)
+COPY apps/server/package.json apps/server/
+COPY apps/admin/package.json apps/admin/
+# Full web source
+COPY apps/web/ apps/web/
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --filter @app/web...
 
 ARG VITE_API_BASE_URL=http://localhost:3000/api
 ENV VITE_API_BASE_URL=$VITE_API_BASE_URL

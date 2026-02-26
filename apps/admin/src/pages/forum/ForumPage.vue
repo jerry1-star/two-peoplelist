@@ -47,6 +47,8 @@ const statusMap: Record<string, { color: string; label: string }> = {
   REJECTED: { color: 'red', label: '已拒绝' },
 }
 
+function onTableChange(p: number, ps: number) { page.value = p; pageSize.value = ps; fetchPosts() }
+
 async function fetchPosts() {
   loading.value = true
   try {
@@ -104,7 +106,7 @@ onMounted(fetchPosts)
         total,
         showSizeChanger: true,
         showTotal: (t: number) => `共 ${t} 条`,
-        onChange: (p: number, ps: number) => { page.value = p; pageSize.value = ps; fetchPosts() },
+        onChange: onTableChange,
       }"
       row-key="id"
     >

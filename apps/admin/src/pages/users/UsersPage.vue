@@ -35,6 +35,8 @@ const columns = [
   { title: '操作', key: 'actions', width: 160 },
 ]
 
+function onTableChange(p: number, ps: number) { page.value = p; pageSize.value = ps; fetchUsers() }
+
 async function fetchUsers() {
   loading.value = true
   try {
@@ -95,7 +97,7 @@ onMounted(fetchUsers)
         total,
         showSizeChanger: true,
         showTotal: (t: number) => `共 ${t} 条`,
-        onChange: (p: number, ps: number) => { page.value = p; pageSize.value = ps; fetchUsers() },
+        onChange: onTableChange,
       }"
       row-key="id"
     >
