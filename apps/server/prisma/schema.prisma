@@ -1,0 +1,238 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── USERS ───────────────────────────────────────────────────────────────────
+
+enum UserStatus {
+  ACTIVE
+  BANNED
+}
+
+model User {
+  id           String     @id @default(cuid())
+  phone        String     @unique
+  username     String?    @unique
+  passwordHash String?
+  nickname     String
+  avatar       String?
+  bio          String?
+  status       UserStatus @default(ACTIVE)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  userRoles       UserRole[]
+  posts           Post[]
+  comments        Comment[]
+  learningRecords LearningRecord[]
+  refreshTokens   RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+// ─── RBAC ────────────────────────────────────────────────────────────────────
+
+model Role {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  description String?
+
+  userRoles       UserRole[]
+  rolePermissions RolePermission[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id          String  @id @default(cuid())
+  resource    String
+  action      String
+  description String?
+
+  rolePermissions RolePermission[]
+
+  @@unique([resource, action])
+  @@map("permissions")
+}
+
+model UserRole {
+  userId String
+  roleId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+// ─── FORUM ───────────────────────────────────────────────────────────────────
+
+enum PostStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Category {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  description String?
+  sortOrder   Int     @default(0)
+
+  posts Post[]
+
+  @@map("categories")
+}
+
+model Post {
+  id         String     @id @default(cuid())
+  title      String
+  content    String     @db.Text
+  status     PostStatus @default(PENDING)
+  viewCount  Int        @default(0)
+  authorId   String
+  categoryId String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+
+  author   User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id])
+  comments Comment[]
+
+  @@map("posts")
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  authorId  String
+  postId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  post   Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@map("comments")
+}
+
+// ─── COURSES ─────────────────────────────────────────────────────────────────
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  coverUrl    String?
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  learningRecords LearningRecord[]
+
+  @@map("courses")
+}
+
+model LearningRecord {
+  id          String    @id @default(cuid())
+  userId      String
+  courseId    String
+  progress    Int       @default(0)
+  completedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("learning_records")
+}
+
+// ─── TOOLS ───────────────────────────────────────────────────────────────────
+
+model Tool {
+  id            String   @id @default(cuid())
+  name          String
+  description   String   @db.Text
+  iconUrl       String?
+  link          String
+  categoryName  String
+  tags          String[]
+  isRecommended Boolean  @default(false)
+  sortOrder     Int      @default(0)
+  isPublished   Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("tools")
+}
+
+// ─── CASES ───────────────────────────────────────────────────────────────────
+
+model Case {
+  id          String   @id @default(cuid())
+  title       String
+  summary     String
+  content     String   @db.Text
+  coverUrl    String?
+  authorName  String
+  revenue     String?
+  sortOrder   Int      @default(0)
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("cases")
+}
+
+// ─── BANNERS ─────────────────────────────────────────────────────────────────
+
+enum BannerPosition {
+  HOME_TOP
+  HOME_MIDDLE
+}
+
+model Banner {
+  id        String         @id @default(cuid())
+  imageUrl  String
+  link      String?
+  position  BannerPosition @default(HOME_TOP)
+  startAt   DateTime?
+  endAt     DateTime?
+  isActive  Boolean        @default(true)
+  sortOrder Int            @default(0)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  @@map("banners")
+}

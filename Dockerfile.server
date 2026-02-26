@@ -1,0 +1,23 @@
+FROM node:22-alpine
+WORKDIR /app
+
+RUN npm install -g pnpm
+
+# Copy workspace config and all package.json files first (for layer caching)
+COPY package.json pnpm-workspace.yaml pnpm-lock.yaml ./
+COPY packages/ packages/
+COPY apps/ apps/
+
+# Install all workspace dependencies (includes devDeps for ts-node seed support)
+RUN pnpm install --frozen-lockfile
+
+# Generate Prisma client and build server
+RUN cd apps/server && npx prisma generate
+RUN pnpm --filter @app/server build
+
+ENV NODE_ENV=production
+EXPOSE 3000
+WORKDIR /app/apps/server
+
+# On startup: push schema, seed (idempotent), then start
+CMD ["sh", "-c", "npx prisma db push --skip-generate && npx ts-node --transpile-only prisma/seed.ts && node dist/main"]

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>01-首页-人人都是产品专家</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3625f4",
+                        "background-light": "#f6f5f8",
+                        "background-dark": "#111022",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(54, 37, 244, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md px-6 md:px-16 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">rocket_launch</span>
+<h2 class="text-xl font-bold tracking-tight text-white">人人都是产品专家</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">AI 学习路径</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">AI 工具库</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">成功案例</a>
+<a class="text-slate-300 hover:text-primary transition-colors text-sm font-medium" href="#">社群论坛</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 w-64">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm text-white placeholder:text-slate-500 w-full" placeholder="搜索 AI 灵感..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all neon-glow">
+                        开启个人商业帝国
+                    </button>
+<div class="size-10 rounded-full border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar male creative professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8uMOGVMsK_yNoHFZTPM2zWEzyjMtWQikRr05f1b60Vz9C-TNvitFxTo21UqNopGdtjIYQKirAs892Dr6hlP5VQMOAhRDwFMY7fQl2Zm7PxKw72cBAi8zzP6IUbd0UTzFWCv8S_FmOJfHv6dAWk1L621QswguBJwRMIeHE9ErGcWW5AuE3NtZb7x_Wz6WULkphqFKMnV5gye9fzc4i8xSKel3tz-1YERHM6IKwEtI7Wr9yVK6c_uCH1PTlnOdGH1ufPRDDD29Uj3RB"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative pt-20 pb-16 px-6 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[150px]"></div>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="flex flex-col items-center text-center gap-8">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                            未来已来 · 独立创作者首选
+                        </div>
+<h1 class="text-5xl md:text-7xl font-black text-white leading-tight">
+                            用 AI 开启你的<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">个人商业帝国</span>
+</h1>
+<p class="text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed">
+                            专为独立创作者打造的一站式 AI 学习与商业增长平台。从 0 到 1 掌握大模型，重塑你的个人价值与效率上限。
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all flex items-center gap-2 group">
+                                立即开始 
+                                <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="glass-card hover:bg-white/10 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all">
+                                查看学习路径
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Latest AI News -->
+<section class="max-w-7xl mx-auto px-6 py-16">
+<div class="flex items-center justify-between mb-10">
+<h2 class="text-3xl font-bold text-white flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">news</span>
+                        最新 AI 资讯
+                    </h2>
+<a class="text-primary font-medium hover:underline flex items-center gap-1" href="#">
+                        查看全部 <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- News Card 1 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/50 transition-all cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic AI digital concept illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYzVoqXz5lB0vKkAmY-6-MP-PTGbyrn5eCIJijHoAfiD93ucP-zTJPH0UVZAEukV4D_d8Lxczl1-bbLJ0t3b90mNnN-v3qoG96SUFWVE_7vMObaR9ekqmrBYdqE2rJvV2tZb3MwTBHniNWNWjTG7anKzuExU6tZBvIrGKn9xtSOdB4tQ5UwMqB6QKThp1t8nCHLTo3nbG7doaGqrS80qfpDqVEjU8Akd81ztf55xwJ-fI1v8cGtEIu_tCemSDJEox6Is8ct0GeVXdS"/>
+<div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded-md text-xs font-bold text-white uppercase">
+                                行业趋势
+                            </div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">AI 赋能个人品牌：2024 新范式</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">专家点评：AI 正在重塑内容分发逻辑，个人创作者需要掌握“Prompt 架构师”思维，而非仅仅是使用工具...</p>
+<div class="flex items-center gap-3 border-t border-white/5 pt-4">
+<div class="size-8 rounded-full bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary">person</span>
+</div>
+<div class="text-xs">
+<p class="text-slate-200 font-bold">老沈 (资深产品专家)</p>
+<p class="text-slate-500">3小时前发布</p>
+</div>
+</div>
+</div>
+</div>
+<!-- News Card 2 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/50 transition-all cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract neural network connections glowing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbHJktMjMK1TotIb93ZaI44YhopjEGm5_FUP-1KEaSio4ys3KGDGYYTk2QId25PKVfhdQwSl6GFXiSWzfX6bSRIyNnuVZOl7_nBUI4zZpFQpbsHaO6L4eQgaAED7aDfT2fCtoj2Rhmg7LFmqGpHuxBFIzqLomHxXhc3_AXnnFRKcrv16hpGgX--ht69U1cv2X0Cx3-Yvs4zYowR4CfRQP0qb0nIexduNpFy0TCh_MadkmMiIuCYOUPcOC7tTyraiwc6oernEZ0x-Bz"/>
+<div class="absolute top-4 left-4 bg-purple-600 px-3 py-1 rounded-md text-xs font-bold text-white uppercase">
+                                深度解析
+                            </div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">大模型时代下的副业变现机会</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">分析如何利用 LLM 提高 10x 生产效率，并锁定 3 个目前竞争最小、天花板最高的 AI 内容赛道...</p>
+<div class="flex items-center gap-3 border-t border-white/5 pt-4">
+<div class="size-8 rounded-full bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary">person</span>
+</div>
+<div class="text-xs">
+<p class="text-slate-200 font-bold">Emma (AI研究员)</p>
+<p class="text-slate-500">5小时前发布</p>
+</div>
+</div>
+</div>
+</div>
+<!-- News Card 3 -->
+<div class="glass-card rounded-xl overflow-hidden group hover:border-primary/50 transition-all cursor-pointer">
+<div class="h-48 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Clean desk with high-tech devices and code" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3JEa692SRydCVxbZzTDNGb0_poDBP42-CLy5KcZH-4sUBbzrXMtQKxjAdxsf-2i4t-WG2aDQz6viPpFwqFJa9DyqQvSvzA58WWi7t0DxhRAfhyIPKFAIHpjoMeXyTuh5JgTA0j39zM_0JYuiDizL6Nvuu9ipANFZ9bseAHM8oxgzKz68hx2ynXgOoMywWOfK5k36_nU46vkfA5j99JGuS3P6GsjbeLzOS8n9oyz0RRU_BCn9jM2tW5RCDR-S1JhA1xzajqsO9tJy7"/>
+<div class="absolute top-4 left-4 bg-green-600 px-3 py-1 rounded-md text-xs font-bold text-white uppercase">
+                                工具推荐
+                            </div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">2024 AI 效率工具全景地图</h3>
+<p class="text-slate-400 text-sm leading-relaxed mb-4">精选 100+ 提升生产力的神器，涵盖文本、图片、音视频及自动化工作流，告别工具焦虑...</p>
+<div class="flex items-center gap-3 border-t border-white/5 pt-4">
+<div class="size-8 rounded-full bg-slate-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary">person</span>
+</div>
+<div class="text-xs">
+<p class="text-slate-200 font-bold">阿強 (流程架构师)</p>
+<p class="text-slate-500">8小时前发布</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Core Modules -->
+<section class="bg-primary/5 py-20 px-6">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold text-white mb-4">核心赋能模块</h2>
+<p class="text-slate-400">系统化的路径，实战化的工具，闭环化的商业落地</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Module 1 -->
+<div class="glass-card p-8 rounded-2xl hover:bg-primary/10 transition-colors group">
+<div class="size-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">map</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">AI 学习路径</h3>
+<p class="text-slate-400 mb-6">从零基础到 AI 提示词专家，结构化课程体系带你通关。</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 基础大模型原理
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 进阶 Prompt 工程
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 垂直领域落地实战
+                                </li>
+</ul>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all" href="#">
+                                开始学习 <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+<!-- Module 2 -->
+<div class="glass-card p-8 rounded-2xl border-primary/30 bg-primary/10 transition-colors group">
+<div class="size-14 bg-primary rounded-xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform neon-glow">
+<span class="material-symbols-outlined text-3xl">build</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">AI 工具库</h3>
+<p class="text-slate-400 mb-6">全球精选 AI 生产力工具雷达，一键对比与推荐最适合你的神器。</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 每日更新工具榜单
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 独家内测邀请码
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 使用教程与场景案例
+                                </li>
+</ul>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all" href="#">
+                                探索工具 <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+<!-- Module 3 -->
+<div class="glass-card p-8 rounded-2xl hover:bg-primary/10 transition-colors group">
+<div class="size-14 bg-primary/20 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">auto_awesome</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-3">成功案例</h3>
+<p class="text-slate-400 mb-6">真实可复制的个人 AI 商业闭环，看先行者是如何赚到第一桶金的。</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 复盘拆解复利逻辑
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 变现路径深度揭秘
+                                </li>
+<li class="flex items-center gap-2 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-lg">check_circle</span> 专属陪跑社群资源
+                                </li>
+</ul>
+<a class="inline-flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all" href="#">
+                                学习案例 <span class="material-symbols-outlined">trending_flat</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Snippet -->
+<section class="max-w-7xl mx-auto px-6 py-24">
+<div class="glass-card rounded-[2rem] p-10 md:p-16 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-[12rem]">forum</span>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h2 class="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                            不只是平台，<br/>更是你的<span class="text-primary">智囊团</span>
+</h2>
+<p class="text-slate-400 text-lg mb-8">
+                            加入超过 50,000+ 位像你一样的 AI 创作者社群。在这里，没有废话，只有实操与共赢。
+                        </p>
+<div class="flex flex-wrap justify-center md:justify-start gap-4">
+<div class="flex -space-x-3">
+<img class="size-10 rounded-full border-2 border-background-dark object-cover" data-alt="Community member avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkzaSVIoxVI04DNJrkVbhYnRIp98KPjc9MdN3djFFHpJMMIns7_WeIurVwbSMaO4V1gXdRhHkvHMK16z3_K7nfvpMNgh-AF4CatHk03zugb0O1BDVAL_CHpNCao9J9IX_dDK2a6zygMdzFgDSzMXBhfYmMg2YE7IdO37HdDLPBnm7Y2WtJKNLGY1AtpdQnHr_zKnR51ownzeMCgv5z-4TKADSaTOMqq94xhEP920IVrVOCdw6lbLTFLyblB3abo45i0XZE1KX6GxM5"/>
+<img class="size-10 rounded-full border-2 border-background-dark object-cover" data-alt="Community member avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhT7nX1zDxohQlGx99SJtwf7UP32cGAKUXfxbGnyokJ6Bv45QOGvzKWqc3xlKFQgO05__mEga_iaPCuVZ7LT_tdFCOtL2bgz8wy0gLf49cyVpNb1dvVzv_AG8Z4eadiNwMHEBVnQ1N9oAbkswokOuLROPZoa18Cb86YnIS76jbulz_R2lZg2t7XwD-x8UFv8oiZaqIrv5KkoV8lvuOTqOOuMeKoLCEfo2zazIJFA5CA9-5Cr4cKtndxMPaFjZ0zzueKB1QYYp46UZX"/>
+<img class="size-10 rounded-full border-2 border-background-dark object-cover" data-alt="Community member avatar 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv_6uTkhTm1Ax-E875-zASGsxS1dSCB5AhkAeE26AV764lm8K6IkqaP5KUJMcjfMMECFj8JX6rUvB2xtJdM3q0lYBXizUHLm9UoA8nSv0N19kM5Yuxmohwg0jnz7KIjChuYJxSXiaAgWCxf845OeIv3PsVLKRIOmXzM1p2z5SLyYlH9OeeF1GAC6QHMz-msUxjn-zbg0Ct0xJk0wpxD4iqUM9Hlkb78ObiG5-WvVvjJCez-zKz3-lJY0tibgtYyx-3IT3ddCF4zwyA"/>
+<div class="size-10 rounded-full border-2 border-background-dark bg-primary flex items-center justify-center text-[10px] font-bold text-white">
+                                    +50k
+                                </div>
+</div>
+<p class="text-slate-300 text-sm flex items-center">
+                                已有 <span class="text-white font-bold mx-1">128</span> 位创作者今日加入
+                            </p>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4 w-full">
+<div class="bg-white/5 p-5 rounded-2xl border border-white/5">
+<p class="text-xs text-primary font-bold mb-2 uppercase">热门讨论</p>
+<p class="text-sm text-white font-medium mb-4"># 如何用 ChatGPT 写出千万爆款文案？</p>
+<div class="flex items-center gap-2 text-[10px] text-slate-500">
+<span class="material-symbols-outlined text-xs">visibility</span> 12k
+                                <span class="material-symbols-outlined text-xs ml-2">chat_bubble</span> 482
+                            </div>
+</div>
+<div class="bg-white/5 p-5 rounded-2xl border border-white/5 mt-8">
+<p class="text-xs text-purple-400 font-bold mb-2 uppercase">资源共享</p>
+<p class="text-sm text-white font-medium mb-4">整理了 200 个 Midjourney 垂直风格词库包</p>
+<div class="flex items-center gap-2 text-[10px] text-slate-500">
+<span class="material-symbols-outlined text-xs">download</span> 3.4k
+                            </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-black/50 border-t border-white/5 py-16 px-6">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 text-primary mb-6">
+<span class="material-symbols-outlined text-2xl">rocket_launch</span>
+<h2 class="text-lg font-bold tracking-tight text-white uppercase">PE Expert</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        人人都是产品专家。在这个由算法定义的时代，重新定义你自己的商业边界。
+                    </p>
+<div class="flex gap-4">
+<a class="text-slate-500 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
+<a class="text-slate-500 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">terminal</span></a>
+<a class="text-slate-500 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">rss_feed</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">平台内容</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">课程体系</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">工具库</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">商业实操</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">专栏订阅</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">社区互动</h4>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">问答论坛</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">私享社群</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">线下沙龙</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">导师招募</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">订阅简报</h4>
+<p class="text-slate-500 text-sm mb-4">获取最新的 AI 商业周报，直达邮箱。</p>
+<div class="flex gap-2">
+<input class="bg-white/5 border border-white/10 rounded-lg text-sm px-4 py-2 w-full focus:ring-primary focus:border-primary" placeholder="Email 地址" type="email"/>
+<button class="bg-primary px-4 py-2 rounded-lg text-white font-bold text-sm">订阅</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+<p>© 2024 人人都是产品专家. All Rights Reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-slate-400" href="#">隐私政策</a>
+<a class="hover:text-slate-400" href="#">服务条款</a>
+<a class="hover:text-slate-400" href="#">商务合作</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

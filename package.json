@@ -1,0 +1,19 @@
+{
+  "name": "renren-product-expert",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "dev:web": "pnpm --filter @app/web dev",
+    "dev:admin": "pnpm --filter @app/admin dev",
+    "dev:server": "pnpm --filter @app/server dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "@prisma/client", "prisma", "@prisma/engines", "@nestjs/core", "bcrypt"]
+  }
+}
