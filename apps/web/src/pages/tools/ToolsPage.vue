@@ -10,8 +10,8 @@ const categories = ref<string[]>(['全部'])
 
 onMounted(async () => {
   try {
-    const res = await client.get<void, { data: { data: Tool[] } }>('/tools')
-    tools.value = res.data ?? []
+    const res = await client.get<void, Tool[]>('/tools')
+    tools.value = res ?? []
     const cats = [...new Set(tools.value.map((t) => t.categoryName))]
     categories.value = ['全部', ...cats]
   } catch { /* ignore */ }

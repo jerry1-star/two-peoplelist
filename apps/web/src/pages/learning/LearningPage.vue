@@ -8,7 +8,7 @@ const loading = ref(true)
 
 onMounted(async () => {
   try {
-    const res = await client.get<void, { data: Course[] }>('/courses')
+    const res = await client.get<void, Course[]>('/courses')
     courses.value = res ?? []
   } catch { /* ignore */ }
   finally { loading.value = false }

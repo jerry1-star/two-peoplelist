@@ -7,7 +7,7 @@ const banners = ref<Banner[]>([])
 
 onMounted(async () => {
   try {
-    const res = await client.get<void, { data: Banner[] }>('/banners?position=HOME_TOP')
+    const res = await client.get<void, Banner[]>('/banners?position=HOME_TOP')
     banners.value = res ?? []
   } catch { /* ignore */ }
 })

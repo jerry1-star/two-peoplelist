@@ -8,8 +8,8 @@ const loading = ref(true)
 
 onMounted(async () => {
   try {
-    const res = await client.get<void, { data: { data: Case[] } }>('/cases')
-    cases.value = res.data ?? []
+    const res = await client.get<void, Case[]>('/cases')
+    cases.value = res ?? []
   } catch { /* ignore */ }
   finally { loading.value = false }
 })

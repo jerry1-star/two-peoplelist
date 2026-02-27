@@ -10,7 +10,7 @@ const loading = ref(true)
 
 onMounted(async () => {
   try {
-    const res = await client.get<void, { data: Case }>(`/cases/${route.params.id}`)
+    const res = await client.get<void, Case>(`/cases/${route.params.id}`)
     item.value = res
   } catch { /* ignore */ }
   finally { loading.value = false }
